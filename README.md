@@ -1,2 +1,2 @@
 # peoplebank-test
-test code
+coding assessment
