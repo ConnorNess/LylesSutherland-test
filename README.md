@@ -1,6 +1,11 @@
 # LylesSutherland-test
 coding assessment
 
+To Run
+____________
+Simply place the CSV and propertyvisit.php in the same directory, I used apache so they were placed in htdocs but WAMP should work just as easily
+Initialise the server and head to the localhost directory
+
 
 Rules
 _____________
