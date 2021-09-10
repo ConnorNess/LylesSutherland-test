@@ -142,6 +142,7 @@ function newdate($manager_1, $manager_2, $manager_3){
   $manager_3->set_location(null);
 }
 
+$rearranged_appointments = array();
 function rearrange($appointment){
   echo "<pre>";
   echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) at property $appointment[7] will be rescheduled";
@@ -168,6 +169,7 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
   $end_of_month = date("Y-m-t", strtotime($appointment[6]));
   if($appointment[6] == $end_of_month){
     rearrange($appointment);
+    array_push($rearranged_appointments, $appointment);
     continue;
   }
 
@@ -208,9 +210,12 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
   }
   else{
     rearrange($appointment);
+    array_push($rearranged_appointments, $appointment);
   }
 }
 
+print_r($rearranged_appointments);
+return $rearranged_appointments;
 ?>
 
 </body>
