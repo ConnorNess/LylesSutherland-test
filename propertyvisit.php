@@ -173,14 +173,14 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
 
   //Check what managers are free
   //If the appointment is later than the current time of the manager + travel distance (30 mins), then they can make it
-  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_1->get_time()))) || $manager_1->get_time() == null)){
-    $manager_1->set_available = true;
+  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_1->get_time())))) || $manager_1->get_time() == null){
+    $manager_1->set_available("true");
   }
-  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_2->get_time()))) || $manager_2->get_time() == null)){
-    $manager_2->set_available = true;
+  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_2->get_time())))) || $manager_2->get_time() == null){
+    $manager_2->set_available("true");
   }
-  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_3->get_time()))) || $manager_3->get_time() == null)){
-    $manager_3->set_available = true;
+  if($appointment[6] > date("H:i:s", (strtotime("+30 minutes", strtotime($manager_3->get_time())))) || $manager_3->get_time() == null){
+    $manager_3->set_available("true");
   }
 
   $manager_sent = 0;
