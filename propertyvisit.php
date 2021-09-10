@@ -150,9 +150,9 @@ function rearrange($appointment){
   echo "</pre>";
 }
 
-function appointment_valid($appointment){
+function appointment_valid($appointment, $manager_sent){
   echo "<pre>";
-  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) at property $appointment[7] has been completed!";
+  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) at property $appointment[7] has been completed by manager $manager_sent!";
   echo "</pre>";
 }
 
@@ -183,24 +183,28 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
     $manager_3->set_available = true;
   }
 
+  $manager_sent = 0;
   //Lets send whos available
-  if($manager_1->get_available() || $manager_1->get_location = $appointment[7]){
+  if($manager_1->get_available() == "true" || $manager_1->get_location = $appointment[7]){
     $manager_1->set_available("false");
     $manager_1->set_time($appointment[6]);
     $manager_1->set_location($appointment[7]);
-    appointment_valid($appointment);
+    $manager_sent = 1;
+    appointment_valid($appointment, $manager_sent);
   }
-  elseif($manager_2->get_available() || $manager_2->get_location = $appointment[7]){
+  elseif($manager_2->get_available() == "true" || $manager_2->get_location = $appointment[7]){
     $manager_2->set_available("false");
     $manager_2->set_time($appointment[6]);
     $manager_2->set_location($appointment[7]);
-    appointment_valid($appointment);
+    $manager_sent = 2;
+    appointment_valid($appointment, $manager_sent);
   }
-  elseif($manager_3->get_available() || $manager_3->get_location = $appointment[7]){
+  elseif($manager_3->get_available() == "true" || $manager_3->get_location = $appointment[7]){
     $manager_3->set_available("false");
     $manager_3->set_time($appointment[6]);
     $manager_3->set_location($appointment[7]);
-    appointment_valid($appointment);
+    $manager_sent = 3;
+    appointment_valid($appointment, $manager_sent);
   }
   else{
     rearrange($appointment);
