@@ -185,21 +185,21 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
 
   $manager_sent = 0;
   //Lets send whos available
-  if($manager_1->get_available() == "true" || $manager_1->get_location = $appointment[7]){
+  if($manager_1->get_available() == "true" || $manager_1->get_location() == $appointment[7]){
     $manager_1->set_available("false");
     $manager_1->set_time($appointment[6]);
     $manager_1->set_location($appointment[7]);
     $manager_sent = 1;
     appointment_valid($appointment, $manager_sent);
   }
-  elseif($manager_2->get_available() == "true" || $manager_2->get_location = $appointment[7]){
+  elseif($manager_2->get_available() == "true" || $manager_2->get_location() == $appointment[7]){
     $manager_2->set_available("false");
     $manager_2->set_time($appointment[6]);
     $manager_2->set_location($appointment[7]);
     $manager_sent = 2;
     appointment_valid($appointment, $manager_sent);
   }
-  elseif($manager_3->get_available() == "true" || $manager_3->get_location = $appointment[7]){
+  elseif($manager_3->get_available() == "true" || $manager_3->get_location() == $appointment[7]){
     $manager_3->set_available("false");
     $manager_3->set_time($appointment[6]);
     $manager_3->set_location($appointment[7]);
