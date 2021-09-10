@@ -144,7 +144,7 @@ function newdate($manager_1, $manager_2, $manager_3){
 
 function rearrange($appointment){
   echo "<pre>";
-  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) will be rescheduled";
+  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) at property $appointment[7] will be rescheduled";
   echo "</br>";
   echo "Sending email to $appointment[3]....";
   echo "</pre>";
@@ -152,7 +152,7 @@ function rearrange($appointment){
 
 function appointment_valid($appointment){
   echo "<pre>";
-  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) has been completed!";
+  echo "Appointment for tenant: $appointment[0]($appointment[1] $appointment[2]) at property $appointment[7] has been completed!";
   echo "</pre>";
 }
 
@@ -185,21 +185,21 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
 
   //Lets send whos available
   if($manager_1->get_available() || $manager_1->get_location = $appointment[7]){
-    $manager_1->set_available = false;
-    $manager_1->set_time = $appointment[6];
-    $manager_1->set_location = $appointment[7];
+    $manager_1->set_available("false");
+    $manager_1->set_time($appointment[6]);
+    $manager_1->set_location($appointment[7]);
     appointment_valid($appointment);
   }
   elseif($manager_2->get_available() || $manager_2->get_location = $appointment[7]){
-    $manager_2->set_available = false;
-    $manager_2->set_time = $appointment[6];
-    $manager_2->set_location = $appointment[7];
+    $manager_2->set_available("false");
+    $manager_2->set_time($appointment[6]);
+    $manager_2->set_location($appointment[7]);
     appointment_valid($appointment);
   }
   elseif($manager_3->get_available() || $manager_3->get_location = $appointment[7]){
-    $manager_3->set_available = false;
-    $manager_3->set_time = $appointment[6];
-    $manager_3->set_location = $appointment[7];
+    $manager_3->set_available("false");
+    $manager_3->set_time($appointment[6]);
+    $manager_3->set_location($appointment[7]);
     appointment_valid($appointment);
   }
   else{
