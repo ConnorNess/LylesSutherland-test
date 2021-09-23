@@ -166,8 +166,8 @@ foreach($tenantarray as $appointment){ //Lets check each appointment
 
   //Ok, time to find out if PHP has a way to easily get the last days of a month
   //https://www.php.net/manual/en/function.date.php "t" seems to return the last date of the month - nice
-  $end_of_month = date("Y-m-t", strtotime($appointment[6]));
-  if($appointment[6] == $end_of_month){
+  $end_of_month = date("Y-m-t", strtotime($appointment[5]));
+  if($appointment[5] == $end_of_month){
     rearrange($appointment);
     array_push($rearranged_appointments, $appointment);
     continue;
